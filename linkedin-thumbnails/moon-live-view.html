@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:627px;overflow:hidden}
+  body{font-family:-apple-system,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
+    background:radial-gradient(circle at 82% 50%,rgba(130,90,255,.5) 0%,transparent 42%),linear-gradient(135deg,#0f0d24 0%,#221a4a 100%);
+    color:#fff;display:flex;align-items:center;padding:0 72px;gap:64px}
+  h1 span{background:linear-gradient(90deg,#b9a2ff,#e0b6ff);-webkit-background-clip:text;color:transparent}
+  .left{flex:1}
+  .chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    padding:8px 16px;border-radius:999px;font-size:20px;font-weight:600}
+  .chip i{width:10px;height:10px;border-radius:50%;background:#9b6bff;display:block}
+  h1{font-family:"SF Mono",Menlo,monospace;font-size:60px;line-height:1.05;font-weight:700;letter-spacing:-1px;margin:26px 0 20px}
+  p{font-size:27px;line-height:1.35;color:#d3cdf2;max-width:520px}
+  .stats{display:flex;gap:14px;margin-top:34px}
+  .stat{background:#fff;color:#221a4a;font-weight:700;font-size:21px;padding:10px 18px;border-radius:12px}
+  .stat.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .code{width:480px;flex:none;background:#0b0a18;border:1px solid rgba(255,255,255,.12);border-radius:20px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px -10px rgba(0,0,0,.6);overflow:hidden}
+  .bar{display:flex;gap:8px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .bar b{width:12px;height:12px;border-radius:50%;background:#ff5f57}.bar b:nth-child(2){background:#febc2e}.bar b:nth-child(3){background:#28c840}
+  .bar span{margin-left:12px;font:15px Menlo,monospace;color:#8a86a8}
+  pre{font:19px/1.65 "SF Mono",Menlo,monospace;padding:22px 26px 28px;color:#e6e3ff}
+  .k{color:#c792ea}.t{color:#82aaff}.a{color:#ffcb6b}.s{color:#c3e88d}.c{color:#6b6790}
+</style></head>
+<body>
+  <div class="left">
+    <span class="chip"><i></i>Open-source Elixir library</span>
+    <h1>moon_<span>live_view</span></h1>
+    <p>Moon Design System components for Phoenix LiveView.</p>
+    <div class="stats"><span class="stat">v1.0.0 on Hex</span><span class="stat ghost">1.2K+ downloads</span><span class="stat ghost">MIT</span></div>
+  </div>
+  <div class="code">
+    <div class="bar"><b></b><b></b><b></b><span>mix.exs</span></div>
+<pre><span class="c"># add to your deps</span>
+<span class="k">defp</span> <span class="t">deps</span> <span class="k">do</span>
+  [
+    {<span class="a">:phoenix_live_view</span>, <span class="s">"~&gt; 1.0"</span>},
+    {<span class="a">:moon_live_view</span>, <span class="s">"~&gt; 1.0"</span>}
+  ]
+<span class="k">end</span></pre>
+  </div>
+</body></html>

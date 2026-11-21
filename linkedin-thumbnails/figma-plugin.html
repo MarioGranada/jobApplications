@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:627px;overflow:hidden}
+  body{font-family:-apple-system,"SF Pro Display","Inter","Helvetica Neue",Arial,sans-serif;
+    background:radial-gradient(circle at 82% 50%,rgba(76,96,255,.55) 0%,transparent 42%),linear-gradient(135deg,#0d1024 0%,#1a1f4a 100%);
+    color:#fff;display:flex;align-items:center;padding:0 72px;gap:64px}
+  .left{flex:1}
+  .chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+    padding:8px 16px;border-radius:999px;font-size:19px;font-weight:600;letter-spacing:.2px;color:#dfe2ff}
+  .chip i{width:9px;height:9px;border-radius:50%;background:#8b9bff;display:block;box-shadow:0 0 10px #8b9bff}
+  h1{font-size:68px;line-height:1;font-weight:800;letter-spacing:-2px;margin:26px 0 22px}
+  h1 span{background:linear-gradient(90deg,#9aa8ff,#c6b6ff);-webkit-background-clip:text;color:transparent}
+  p{font-size:26px;line-height:1.4;color:#b9bee6;max-width:500px}
+  .stats{display:flex;gap:12px;margin-top:36px}
+  .stat{background:#fff;color:#1a1f4a;font-weight:700;font-size:20px;padding:10px 18px;border-radius:12px}
+  .stat.ghost{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+
+  /* screenshot cropped to the panel's own edges (source panel ≈ x67–1156, y41+) */
+  .shot{--s:calc(480/1089);width:480px;height:392px;flex:none;position:relative;overflow:hidden;
+    border-radius:18px;background:#f7f7f9;
+    box-shadow:0 0 0 1px rgba(255,255,255,.15),0 40px 80px -10px rgba(0,0,0,.6)}
+  .shot img{position:absolute;width:calc(1248px * var(--s));left:calc(-67px * var(--s));top:calc(-41px * var(--s))}
+  .shot:after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;
+    background:linear-gradient(rgba(247,247,249,0),#f7f7f9 85%)}
+</style></head>
+<body>
+  <div class="left">
+    <span class="chip"><i></i>Figma plugin · Moon Design System</span>
+    <h1>Variables<br><span>Management</span></h1>
+    <p>Remap variables to a new library in one step. No manual relinking.</p>
+    <div class="stats"><span class="stat">211 users</span><span class="stat ghost">Figma Community</span></div>
+  </div>
+  <div class="shot"><img src="plugin-ui.png"></div>
+</body></html>
