@@ -48,3 +48,6 @@
 | 2026-11-23 | eDreams ODIGEO | Frontend Lead Engineer + AI | Barcelona or Madrid (hybrid) | `jobs/eDreams_ODIGEO-Frontend_Lead_Engineer_plus_AI/` | Applied: letter |
 | 2026-11-23 | CONVOTIS Iberia | Senior Frontend Developer (React / Next.js) | Spain (remote, Spain residents) | `jobs/CONVOTIS_Iberia-Senior_Frontend_Developer_React_Next.js_Migracion_de_ecommerce/` | Applied: LinkedIn message to Cristina Izquierdo |
 | 2026-11-23 | Inetum | AI FrontEnd Engineer | Madrid (on-site) | `jobs/Inetum-AI_FrontEnd_Engineer/` | Applied: letter + top-choice message |
+| 2026-11-23 | Yapily | Senior Front End Developer | Málaga (hybrid) | `jobs/Yapily-Senior_Front_End_Developer/` | Letter + headline |
+| 2026-11-23 | Mecalux | FrontEnd Developer | Cornellà de Llobregat, Barcelona (hybrid) | `jobs/Mecalux-FrontEnd_Developer/` | Letter |
+| 2026-11-23 | IKEA | Senior Software Engineer - IKEA for Business, Group Digital | San Sebastián de los Reyes, Madrid (on-site) | `jobs/IKEA-Senior_Software_Engineer_IKEA_for_Business_Group_Digital/` | Letter |
