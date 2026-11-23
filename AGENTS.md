@@ -8,13 +8,14 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 
 ## Layout
 
-- `Mario Granada - Senior Software Engineer CV.docx` / `.pdf` (root): the **current, final CV** as exported from Google Docs. The file name is also the PDF Title metadata.
+- `Mario_Granada_Senior_Software_Engineer_CV.md` (root): **source of truth for the CV text.** It mirrors the final docx word for word. Bullets use `• ` with a blank line between each, so they paste cleanly into Google Docs and LinkedIn.
+- `Mario Granada - Senior Software Engineer CV.docx` / `.pdf` (root): the current, final CV as exported from Google Docs. Their names keep spaces because the Google Doc name becomes the PDF Title metadata (see the naming rule below).
 - `cv_development/`
-  - `CV_MarioGranada_Nov2026_v2.md`: **source of truth for the CV text.** It mirrors the final docx word for word. Bullets use `• ` with a blank line between each, so they paste cleanly into Google Docs and LinkedIn.
   - `LinkedIn_Profile_Nov2026.md`: **source of truth for the LinkedIn text.** Each field (Headline, About, each position, Education) is in a copyable code block. It mirrors the live profile at linkedin.com/in/mariogranadacolombia.
-  - `CV_MarioGranada_Nov2026_old.docx`, `Copy of CV_MarioGranada_Nov2026 (7).docx`: older iterations, kept for reference only.
-- `cover_letter_template.md`: base cover letter with `[Company]`, `[Role]` and `[date]` placeholders. Tailored letters go per company, e.g. a `Loka/` folder.
-- `<Company>/`: material for one specific application (e.g. `Loka/`).
+  - `CV_MarioGranada_Nov2026_v2.md`, `CV_MarioGranada_Nov2026_old.docx`, `Copy of CV_MarioGranada_Nov2026 (7).docx`: older iterations, superseded by the root CV `.md`. Keep for reference only and don't edit them.
+- `cover_letter_template.md`: base cover letter with `[Company]`, `[Role]` and `[date]` placeholders. Every paragraph except "What draws me to…" is approved and stays word for word.
+- `jobs/<Company>-<Role>/`: one folder per application (e.g. `jobs/Wrike-Senior_AI_Product_Builder/`), holding `cover_letter.md` (ready to paste into the Google Docs template) and `job_posting.md` (the posting as read). `Loka/` predates this convention.
+- `.claude/skills/cover_letter_writer/`: skill that reads a job posting URL with Playwright and writes the tailored cover letter into `jobs/`. Trigger it with "create the cover letter for job <url>".
 - `rate/`: contract-rate analysis for Estonia (individual vs FIE vs OÜ "Munbuh Corp OÜ"). `calc_rates.py` holds the model. `rate-analysis.md` and `ou-tax-guide.md` are the write-ups built from its output.
 - `linkedin-thumbnails/`: standalone HTML cards (1200×627 body, LinkedIn link-preview size) that are screenshotted at 2× to make the matching PNGs. `plugin-ui.png` is a source screenshot that `figma-plugin.html` embeds.
 
@@ -27,7 +28,16 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 ## Hard rules
 
 - **Never modify any `.docx` or `.pdf`.** Mario edits those in Google Docs himself. Only edit the `.md` files, then tell him what to change in the doc.
-- The CV `.md` and the LinkedIn `.md` must stay in sync with the final docx and the live profile. When one changes, check whether the other needs the same change.
+- The root CV `.md` and the LinkedIn `.md` must stay in sync with the final docx and the live profile. When one changes, check whether the other needs the same change.
+- **Naming:** always use `_` instead of spaces in every file and folder name you create or rename. The only exceptions are `Mario Granada - Senior Software Engineer CV.docx` and `Mario Granada - Senior Software Engineer CV.pdf`. In `jobs/<Company>-<Role>/`, the single hyphen separates the company from the role. (Google Doc titles used for the PDF Title metadata, e.g. `Mario Granada - Cover Letter - <Company>`, live in Google Drive, not in this repo, so they keep spaces.)
+- **Cover letters:** Mario is available to start immediately and willing to relocate from Tallinn. For on-site or hybrid roles elsewhere, the letter says "willing to relocate to <city>". Address the letter to the person named in the posting (hiring manager first, then job poster or recruiter), and use "Hiring Team" only when no one is named. Every claim must come from the root CV `.md`.
+- **Banned technologies:** never mention these in any output, whether a skill, a cover letter, a message or a suggestion. Use the replacement instead:
+
+  | Never mention | Use instead |
+  |---|---|
+  | WebdriverIO | Playwright |
+
+- **Spanish:** whenever you write in Spanish (messages, answers, cover letters, any output), use Colombian Spanish. Use "usted" in professional messages and "ustedes", never "vosotros". Avoid Spain-only forms such as "valoráis", "os", "vale" and "ordenador". Write "hoja de vida" instead of "CV" or "currículum", and sign off with "Cordial saludo".
 - **Don't invent metrics.** Mario will add real numbers later.
 - Mario pushes back on clutter. Keep suggestions minimal and concrete, and don't re-propose ideas he has already declined (listed below).
 
@@ -41,7 +51,7 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 - Client attribution: SpotOn → Encora. IntelePeer → DevSavant, on the AWS API Gateway bullet only. Mack Weldon and Effie.org → Razorfish.
 - Yolo is **one** CV entry, opening with the Moon Design System. Razorfish (formerly Intersect & Crown Partners) is **one** CV entry, Sep 2012 – Feb 2015.
 - Leaving the gap from Feb 2015 to Apr 2016 off the CV is intentional. So is Globant starting in Aug 2016, the same month Grability ends.
-- Technical Skills was trimmed on purpose (AngularJS, PHP, jQuery, WebdriverIO, Jira and Confluence appear only in the bullets). Don't add them back.
+- Technical Skills was trimmed on purpose (AngularJS, PHP, jQuery, Jira and Confluence appear only in the bullets). Don't add them back.
 
 **LinkedIn:** bullets only, with no per-position "Skills:" lines.
 
