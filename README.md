@@ -11,7 +11,9 @@ Mario Granada's job-search workspace (Tallinn, Estonia): CV, LinkedIn profile te
 | `cover_letter_template.md` | Approved cover letter template. |
 | `jobs/<Company>-<Role>/` | One folder per application: `cover_letter.md`, `job_posting.md`, and sometimes `application_answers.md` or `linkedin_message.md`. |
 | `cv_development/` | LinkedIn profile text (source of truth) and older CV iterations. |
+| `minimum_salary.md` | Minimum net pay (€4,400/month) and the gross salary or invoice it requires in each setup. |
 | `rate/` | Contract-rate and tax model for Estonia. |
+| `spain/` | Relocation plan to Spain and the official digital nomad visa (DNV) requirements. |
 | `linkedin-thumbnails/` | HTML cards screenshotted into LinkedIn link-preview images. |
 | `.claude/skills/cover_letter_writer/` | Claude Code skill that writes a tailored cover letter from a job URL. |
 

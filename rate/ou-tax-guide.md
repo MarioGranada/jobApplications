@@ -40,6 +40,11 @@ So "what tax do I pay?" depends on **how you take the money out**:
 | **Income tax** | **22%** after the **€700/month tax-free allowance** | Fee or salary − II pillar − €700 | Monthly | You (withheld) |
 | **VAT** | **24%** | Your invoices (only if the client is Estonian; reverse charge for EU clients) | KMD by the 20th of the next month | Collected from the client, passed to the state |
 
+> **Two different 22% taxes, don't mix them up:**
+> - **Income tax 22%** is a *personal* tax on your **salary or board fee**, calculated on (gross − II pillar − €700). It's withheld from your pay.
+> - **Corporate income tax (CIT) 22%** is a *company* tax on **profit paid out as dividends**, calculated on the amount distributed. Munbuh pays it.
+> Same rate, different tax, different base. A euro is never hit by both: salary pays income tax (+ social tax), dividends pay CIT.
+
 **Three key facts:**
 1. **Money inside the company is not taxed.** Tax only happens when money moves to you.
 2. **There are only two clean ways to move money to you:** board fee or salary (social tax + income tax), and dividends (22/78 CIT, nothing else).
@@ -566,3 +571,126 @@ It's a **supplement, not a salary**. At about €250/month it's €3,000/year, w
 - The 2027 minimum social-tax base (€946) is an assumption. Check the 2027 state budget figure in December.
 - Rules on loans from the OÜ to you, interim dividends and company cars are nuanced. Confirm with your accountant before using them.
 - Not tax advice. Verify with an Estonian accountant, especially the 2027 cash-flow plan.
+
+---
+
+## 10. Conclusion: employee taxes in Estonia (Coursy example)
+
+Everything is calculated **from the gross salary**. The company adds its taxes **on top** of gross, and your taxes are taken **out of** gross.
+
+| Who | Tax (English / Estonian) | Rate | Calculated on | Coursy (monthly) |
+|---|---|---|---|---|
+| **Company** | **Social tax** / sotsiaalmaks (20% pension + 13% health) | **33%** | Gross | +€1,650.00 |
+| **Company** | Unemployment insurance, employer / töötuskindlustusmakse | 0.8% | Gross | +€40.00 |
+| | **= Total cost to Coursy** | **133.8% of gross** | | **€6,690.00** |
+| **▶ Base** | **GROSS SALARY / brutopalk** | **100%** | **The base for every calculation** | **€5,000.00** |
+| **You** | Unemployment insurance, employee / töötuskindlustusmakse | 1.6% | Gross | −€80.00 |
+| **You** | II pillar pension / kohustusliku kogumispensioni makse | 2% | Gross | −€100.00 |
+| **You** | **Income tax** / tulumaks | **22%** | Gross − 1.6% − 2% − €700 allowance = €4,120 | −€906.40 |
+| | **= Net salary to you** | ≈ 78.3% of gross | | **€3,913.60** |
+| | + Utilities/WFH allowance (untaxed, not part of gross) | | | +€150.00 |
+| | **= Paid to your bank account** | | | **€4,063.60** |
+
+**To remember:** the **company pays 33%** (social tax) and **you pay 22%** (income tax), both from gross, plus small extras: unemployment insurance (0.8% company + 1.6% you) and II pillar (2% you).
+
+---
+
+## 11. Conclusion: company taxes for Munbuh Corp OÜ
+
+### First, two clarifications
+1. **A board fee is optional, not compulsory.** No law requires an OÜ to pay its board members. **You only need one if you want health insurance and pension contributions**, and then it must be at least €886/month gross (2026). If you pay one, it's taxed **like a salary** (33% social tax + 2% II pillar + 22% income tax), not with corporate tax.
+2. **The 22% corporate tax isn't charged on income, and not per board member.** It applies only when **profit leaves the company for you or for non-business purposes** (dividends, fringe benefits, gifts, personal spending). Revenue, business costs, investments and money kept in the company pay **0%**.
+
+### Dividend breakdown: everything is calculated from the profit paid out
+
+| Who | Tax (English / Estonian) | Rate | Calculated on | €1,000 example | Year at €600/day |
+|---|---|---|---|---|---|
+| **▶ Base** | **PROFIT PAID OUT / väljamakstud kasum** | **100%** | **The base for every calculation** | **€1,000.00** | **€119,901.84** |
+| **Company** | **Corporate income tax** / ettevõtte tulumaks | **22%** of profit paid out (= 22/78 of the net dividend) | Profit paid out | −€220.00 | −€26,378.40 |
+| | **= Net dividend to you** | **78%** | | **€780.00** | **€93,523.44** |
+| **You** | Personal tax on the dividend | **0%** | — | €0.00 | €0.00 |
+| | **= Paid to your bank account** | **78%** | | **€780.00** | **€93,523.44** |
+
+Two ways to calculate the same tax: **profit × 22%** (€1,000 × 22% = €220), or **net dividend × 22/78** (€780 × 22/78 = €220).
+
+### What each euro leaving Munbuh pays
+
+| Money going out of Munbuh | Tax | Rate | Paid by |
+|---|---|---|---|
+| Business goods and services (laptop, software, accountant, coworking…) | **None** | 0% | — |
+| Investments (deposits, funds, ETFs) | **None** while they stay in the company | 0% | — |
+| Money kept in the company | **None** | 0% | — |
+| **Board fee** (your salary) | **Social tax + II pillar + income tax** (salary rules) | 33% on top + 2% + 22% | Company + you |
+| **Dividends** | **Corporate income tax** | **22%** of the amount paid out | Company |
+| Fringe benefits (personal costs paid for you or an employee) | Income tax 22/78 **+ social tax 33%** | ~41% of the total cost | Company |
+| Gifts, donations, non-business costs, hospitality over the limit | **Corporate income tax** | 22/78 | Company |
+| Hidden distributions (personal spending, money taken without a decision) | **Corporate income tax** | 22/78 | Company |
+
+**To remember:** **Munbuh pays 22% corporate tax only on profit paid out as dividends or spent on non-business purposes.** Business costs, investments and retained money pay **0%**. A board fee is optional and taxed like a salary (33% + 22%).
+
+**VAT is a separate system.** Of the three "0%" items, **only business costs** can get VAT back (Munbuh must be VAT-registered, with an invoice in Munbuh's name; not for hospitality). Investments carry no VAT (financial services are VAT-exempt), and money kept in the company has none to reclaim. See §6b.
+
+---
+
+## 12. "€5,000/month" as an employee vs as a B2B contract
+
+With B2B, the €5,000 the client pays Munbuh is the **total cost**, not your gross. Your gross is whatever is left after the company's taxes, so it is smaller.
+
+| | Coursy employee | B2B → Munbuh, all paid as board fee | B2B → Munbuh, €886 fee + rest as dividends |
+|---|---|---|---|
+| What the €5,000 is | **Gross** | **Total cost** | Revenue |
+| Total cost to the payer | €6,690 (+€150 allowance) | €5,000 | €5,000 |
+| Company costs (accountant, etc.) | — | (ignored) | −€200 |
+| Social tax 33% + unemployment insurance | €1,690 (on top of gross) | −€1,240.60 (€5,000 ÷ 1.33 = gross €3,759.40) | −€292.38 on the €886 fee |
+| **Gross salary** | **€5,000.00** | **€3,759.40** | **€886.00** fee |
+| Your deductions (unemployment insurance / II pillar / income tax) | −€1,086.40 | −€731.72 (no unemployment insurance) | −€54.74 |
+| Corporate tax 22% on dividends | — | — | −€796.76 (on €3,621.62 profit) |
+| **Net to you** | **€3,913.60** (+€150) | **€3,027.68** | **€3,656.12** (€831.26 fee + €2,824.86 dividends, paid later) |
+
+- **A €5,000 B2B contract is a pay cut compared with a €5,000 gross salary.** Coursy was really spending €6,840/month on you.
+- To match Coursy's **cost**, invoice **≥ €6,840/month**. To match your Coursy **net** (€4,063.60) with the fee + dividends setup, invoice **≈ €5,520/month**, before allowing for unpaid holidays, sick days and gaps between contracts. That's why the day rate in `rate-analysis.md` is set well above this.
+
+---
+
+## 13. Team events, the "coffee tax", and why €6,840
+
+### 13a. Team events and team dinners (how Yolo and Coursy pay for them)
+
+| Event | Usual treatment | Tax |
+|---|---|---|
+| **Team event open to all staff** (team dinner, Christmas party, summer days, team building) | Staff event connected to the business. No individual gets a personal benefit | **Usually 0%**, not a fringe benefit. **Not** counted against the €50 hospitality limit, which is for outside guests |
+| The same event but **luxurious**, a trip for a select few, or with **family members** | The extra part counts as a benefit or gift | 22/78, and possibly social tax too |
+| Dinner with **clients or partners** | Hospitality | 0% up to **€50/month + 2% of that month's social-taxed payments**, then 22/78 |
+
+- A €200+ team dinner at a company like Coursy is normally a tax-free business cost. **VAT on staff food and entertainment is generally not reclaimable.**
+- **For Munbuh:** a "team event" where you're the only employee isn't a team event. It's personal (a fringe benefit). With clients or partners present it's hospitality, with the limit above. Agree with your accountant how each case is booked.
+
+### 13b. The "~70% extra" when the company pays something personal (fringe benefit)
+
+The law treats the benefit as if it were **net salary**. The company grosses it up and pays the taxes:
+
+| Step | Formula | €4 coffee |
+|---|---|---|
+| Benefit (treated as a net amount) | | €4.00 |
+| + Income tax | €4 × 22/78 | €1.13 |
+| + Social tax | (€4 + €1.13) × 33% | €1.69 |
+| **= Real cost to Munbuh** | €4 × 1.705 | **€6.82** |
+| **Extra tax** | €2.82 ÷ €4 | **≈ 70%** |
+
+- **No €700 tax-free allowance here.** The allowance only reduces *your* taxable income (salary, rent and other income you're taxed on personally). Fringe benefit tax is **the company's** tax, charged on the full amount. It's not part of your income, so there's nothing for the allowance to reduce. There's also no II pillar and no unemployment insurance on a fringe benefit.
+- **Compare that with a dividend:** €4 in your pocket costs €4 ÷ 0.78 = €5.13 of profit, only €1.13 of tax (28%). **Pay personal things with your own card**, from money already taken out as salary or dividends.
+
+### 13c. Why €6,840 is the right comparison for a B2B rate with Coursy
+
+In a B2B contract, Coursy **pays only the invoice**, and Munbuh deals with the taxes. The €6,840 is what Coursy **actually spent on you as an employee**:
+
+| Coursy's real monthly cost of employing you | |
+|---|---|
+| Gross salary | €5,000 |
+| + Social tax 33% + unemployment insurance 0.8% | €1,690 |
+| + WFH allowance | €150 |
+| **= Total** | **€6,840** |
+
+- **Employee:** Coursy spends €6,840, you net €4,063.60.
+- **B2B at €5,000:** Coursy spends €5,000 (saving €1,840/month), and the taxes come out of *your* €5,000, so your net is ~€3,000–3,650 (see §12).
+- So accepting **€5,000 B2B = paying Coursy's taxes yourself.** Coursy's comparable budget is **≥ €6,840/month**, plus a premium for unpaid holidays, sick days and gaps between contracts.

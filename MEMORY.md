@@ -26,6 +26,7 @@
 
 - Glia: the AI-workflow answer is based on the portfolio repo's agent setup (constitution, AGENTS.md, MEMORY.md, SDD specs, coordinator/planner/implementer/reviewer agents, worktrees).
 - Block Labs: the four answers in `application_answers.md` are Mario's own final wording. Keep them verbatim. Q3 uses the Coursy `NEXT_LOCALE` cookie-scope fix (commit "COUR-10495 language cookie fix"); Mario asked not to cite the portfolio there.
+- Block Labs (2026-11-23): Mario asked €6,250–7,050/month gross. Ask for an employee contract with a non-Spanish entity on Spanish Social Security, not B2B (B2B at that figure nets less than Coursy). A Spanish entity or Spanish EOR is ruled out because it would require changing the visa (PAC). In the recruiter call, open as Tallinn-based and raise Spain only at the end. Details: `jobs/Block_Labs-Staff_Software_Engineer_Frontend/relocation_and_contract.md`.
 
 ## Mistakes to avoid (learned here)
 
@@ -34,6 +35,10 @@
 - **An Estonian permit doesn't cover Spain.** Spain-only roles (CONVOTIS, Inetum) need remote B2B from Estonia or sponsorship.
 - **Gaps go in chat, not in the text.** Microfrontends, Vite, Redux Toolkit, RAG and MCP aren't on the CV. Next.js App Router isn't either; it's used in the CONVOTIS message at Mario's request, pending a CV update.
 - On LinkedIn, clicking every "… more" link can open a feed post. Target only the job description's button.
+
+# Minimum pay (set 2026-11-23)
+
+- Absolute minimum: €4,400 net/month. Gross and company-cost floors per setup are in `minimum_salary.md`. Block Labs' €6,250/month (€75,000/year) asked is the floor with Beckham.
 
 # Applications log
 
@@ -44,7 +49,7 @@
 | 2026-11-22 | Wise | Senior Fullstack Engineer, Customer Risk Assessment | Tallinn | `jobs/Wise-Senior_Fullstack_Engineer_Customer_Risk_Assessment/` | Applied: letter |
 | 2026-11-22 | Stripe | Frontend Engineer, UI Platform | Barcelona | `jobs/Stripe-Frontend_Engineer_UI_Platform/` | Applied: letter |
 | 2026-11-22 | Glia | Senior Software Engineer, Media | Tartu (hybrid) | `jobs/Glia-Senior_Software_Engineer_Media/` | Applied: answers |
-| 2026-11-23 | Block Labs | Staff Software Engineer, Frontend | | `jobs/Block_Labs-Staff_Software_Engineer_Frontend/` | Applied: final answers (Mario's wording) |
+| 2026-11-23 | Block Labs | Staff Software Engineer, Frontend | | `jobs/Block_Labs-Staff_Software_Engineer_Frontend/` | Applied: final answers (Mario's wording). Recruiter intro call Thu 26 Nov 2026, 11:00 |
 | 2026-11-23 | eDreams ODIGEO | Frontend Lead Engineer + AI | Barcelona or Madrid (hybrid) | `jobs/eDreams_ODIGEO-Frontend_Lead_Engineer_plus_AI/` | Applied: letter |
 | 2026-11-23 | CONVOTIS Iberia | Senior Frontend Developer (React / Next.js) | Spain (remote, Spain residents) | `jobs/CONVOTIS_Iberia-Senior_Frontend_Developer_React_Next.js_Migracion_de_ecommerce/` | Applied: LinkedIn message to Cristina Izquierdo |
 | 2026-11-23 | Inetum | AI FrontEnd Engineer | Madrid (on-site) | `jobs/Inetum-AI_FrontEnd_Engineer/` | Applied: letter + top-choice message |

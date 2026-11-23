@@ -2,6 +2,10 @@
 
 _Prepared 16.11.2026. Rerun with `python3 calc_rates.py` after changing the assumptions._
 
+**Terms**
+- **EOR (Employer of Record):** a company such as Deel, Remote, Oyster or Rippling that legally employs you in a country where your client has no local company. The client picks you, manages your work and pays the EOR. The EOR signs your employment contract, runs local payroll, registers you for social security and withholds tax. Each country is a separate local contract, so an EOR contract doesn't move with you: a Spanish EOR makes you an employee of a Spanish company.
+- **PAC (*Profesional Altamente Cualificado*, Highly Qualified Professional):** a Spanish residence permit for well-paid, qualified employees under Law 14/2013. UGE-CE (the Large Companies and Strategic Groups Unit) resolves it in about 20 working days. You'd need it to move from the digital nomad visa (DNV, which requires a non-Spanish employer) to a job with a Spanish employer, including a Spanish EOR.
+
 ## 1. Reference point: Coursy salary
 
 **What Coursy paid for the role:**
