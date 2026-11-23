@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application code. It contains the CV, the LinkedIn profile text, cover letters, an analysis of contract rates and taxes, and LinkedIn thumbnail images. Most tasks involve writing, auditing for ATS and recruiters, and keeping the CV and LinkedIn consistent with each other.
 
+## Before you start
+
+- Read `constitution.md` before writing anything for Mario (letters, answers, messages). It holds the principles behind these rules.
+- Check `MEMORY.md` for dated decisions, lessons learned and the applications log. When a decision is made or an application is added, record it there with the date.
+- `README.md` is the human-facing overview. Keep it in sync when the layout or workflow changes.
+
 ## Layout
 
 - `Mario_Granada_Senior_Software_Engineer_CV.md` (root): **source of truth for the CV text.** It mirrors the final docx word for word. Bullets use `• ` with a blank line between each, so they paste cleanly into Google Docs and LinkedIn.

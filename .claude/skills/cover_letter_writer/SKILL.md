@@ -13,8 +13,9 @@ Turns a job posting URL into a cover letter Mario can paste straight into his Go
 - **`AGENTS.md`** (repo root): rules, settled decisions and naming conventions. Follow them.
 - **`Mario_Granada_Senior_Software_Engineer_CV.md`** (repo root): the only source of facts about Mario's experience.
 - **`cover_letter_template.md`** (repo root): the letter's structure and tone.
+- **`constitution.md`** (repo root): the writing principles and the checklist to run before handing over.
 
-Read all three files before writing anything.
+Read all four files before writing anything.
 
 ## Step 1: Read the job posting (Playwright only)
 
@@ -70,6 +71,8 @@ Write two files in that folder:
 2. **`job_posting.md`**: the URL, the date it was read, and the extracted posting (company, role, location, description, requirements). Keep it for interview prep and in case the posting is taken down.
 
 If the folder already exists, show the user what's there and ask before you overwrite anything.
+
+Add a row to the "Applications log" table in `MEMORY.md` (date, company, role, location, folder, status).
 
 After saving, delete any `.playwright-mcp/` folder or scraped temporary files from the workspace.
 
