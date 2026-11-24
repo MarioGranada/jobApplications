@@ -11,6 +11,9 @@ Mario Granada's job-search workspace (Tallinn, Estonia): CV, LinkedIn profile te
 | `cover_letter_template.md` | Approved cover letter template. |
 | `jobs/<Company>-<Role>/` | One folder per application: `cover_letter.md`, `job_posting.md`, and sometimes `application_answers.md` or `linkedin_message.md`. |
 | `cv_development/` | LinkedIn profile text (source of truth) and older CV iterations. |
+| `vacantes.xlsx` | Latest export of the vacancies Sheet. Always kept here, and re-exported whenever the Sheet changes. |
+| `jobs/queue.csv`, `jobs/triage.md` | Every unique job from the Sheet with its work-rights gate and status, plus the ranked shortlist. |
+| `scripts/` | `build_queue.py`, `fetch_postings.mjs` and `triage.py`: the job queue and triage tools. |
 | `minimum_salary.md` | Minimum net pay (€4,400/month) and the gross salary or invoice it requires in each setup. |
 | `rate/` | Contract-rate and tax model for Estonia. |
 | `spain/` | Relocation plan to Spain and the official digital nomad visa (DNV) requirements. |
@@ -28,6 +31,19 @@ create the cover letter for job https://www.linkedin.com/jobs/view/<id>/
 The skill reads the posting with Playwright (LinkedIn needs the signed-in browser), writes `jobs/<Company>-<Role>/cover_letter.md` and `job_posting.md`, and flags any requirement the CV doesn't cover.
 
 Then paste `cover_letter.md` into a copy of the Google Docs template, rename the doc to `Mario Granada - Cover Letter - <Company>` and use File → Download → PDF. The doc name becomes the PDF's Title metadata.
+
+## Triage the vacancies Sheet
+
+In Claude Code: `triage the queue`. Or by hand:
+
+```bash
+npm install                                   # once
+python3 scripts/build_queue.py                # vacantes.xlsx -> jobs/queue.csv
+node scripts/fetch_postings.mjs --gate ok,check --priority 1,2 --limit 50
+python3 scripts/triage.py report              # -> jobs/triage.md
+```
+
+Pick jobs from `jobs/triage.md`, ask for their cover letters, and submit them yourself.
 
 ## Export the CV
 

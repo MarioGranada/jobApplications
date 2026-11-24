@@ -22,6 +22,9 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 - `cover_letter_template.md`: base cover letter with `[Company]`, `[Role]` and `[date]` placeholders. Every paragraph except "What draws me to…" is approved and stays word for word.
 - `jobs/<Company>-<Role>/`: one folder per application (e.g. `jobs/Wrike-Senior_AI_Product_Builder/`), holding `cover_letter.md` (ready to paste into the Google Docs template) and `job_posting.md` (the posting as read). `Loka/` predates this convention.
 - `.claude/skills/cover_letter_writer/`: skill that reads a job posting URL with Playwright and writes the tailored cover letter into `jobs/`. Trigger it with "create the cover letter for job <url>".
+- `vacantes.xlsx` (root): the latest Excel export of Mario's vacancies Sheet ("Vacantes para Mario – Nov 2026", claude.ai/artifact/8onQyXHwM6TVVm9x8bVuxz). **Always keep it at the root, and export it again whenever the Sheet is updated** (steps in `.claude/skills/job_triage/`). The Sheet is the source of truth for jobs and their status (see `constitution.md`). It's updated twice a day and is read-only for us. Never edit it.
+- `jobs/queue.csv`: one row per unique job from the export, with work-rights `gate`, `status` and triage results. Rebuild it with `python3 scripts/build_queue.py` after every new export. `jobs/triage/postings/` holds postings read by `scripts/fetch_postings.mjs`, and `jobs/triage.md` is the ranked shortlist written by `scripts/triage.py`.
+- `.claude/skills/job_triage/`: skill that refreshes the export, rebuilds the queue, fetches postings and ranks them. Trigger it with "triage the queue".
 - `minimum_salary.md` (root): Mario's minimum net pay (€4,400/month), with the gross salary, company cost and contractor invoice needed in each setup (Spain or Estonia, employee or contractor).
 - `rate/`: contract-rate analysis for Estonia (individual vs FIE vs OÜ "Munbuh Corp OÜ"). `calc_rates.py` holds the model. `rate-analysis.md` and `ou-tax-guide.md` are the write-ups built from its output. `tax_calculator.xlsx` is an editable spreadsheet (Employee and B2B tabs, live formulas) for Google Sheets.
 - `spain/`: relocation to Spain. `spain_relocation_dnv_context.md` is Mario's visa, tax and relocation plan. `dnv_requirements_tallinn.md` holds the official DNV requirements and procedure from the Spanish Embassy in Tallinn.
@@ -29,6 +32,7 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 
 ## Commands
 
+- Job queue: `python3 scripts/build_queue.py` (export → `jobs/queue.csv`), `node scripts/fetch_postings.mjs --gate ok,check --priority 1,2 --limit 50` (postings → `jobs/triage/postings/`, run in the background, at about 50 a day), `python3 scripts/triage.py set <key> <fit> <verdict> "<notes>"` or `python3 scripts/triage.py report`. Run `npm install` once for Playwright.
 - Rate model: `cd rate && python3 calc_rates.py`. Edit the `ASSUMPTIONS` block at the top, re-run, then update the numbers in `rate-analysis.md` / `ou-tax-guide.md` by hand. Tax rates are marked as assumptions to verify before relying on them.
 - Read a docx: `textutil -convert txt -stdout file.docx`, or `unzip -p file.docx word/document.xml` to inspect its structure.
 - Read a PDF and check for hidden characters: `pdftotext file.pdf -`. Google Docs exports can contain U+200B. Check the metadata with `pdfinfo file.pdf`.
@@ -81,5 +85,6 @@ Mario Granada's job-search workspace (Tallinn, Estonia). It holds no application
 
 ## Tooling notes
 
+- Playwright runs from `.mcp.json` with `--isolated`, so several sessions can each have their own browser. The `playwright` server is `--headless`: use it for LinkedIn and everything else. The `playwright-sheet` server is visible and is used only to export the Sheet, because claude.ai's bot check blocks headless browsers. A standalone Playwright script was tried and claude.ai disabled Export there, so export only through `playwright-sheet`. The LinkedIn login is loaded from `~/.playwright-auth/linkedin.json`, which is kept outside the repo because it holds live cookies. When LinkedIn shows a sign-in wall, refresh the file with `npx playwright codegen --save-storage=$HOME/.playwright-auth/linkedin.json https://www.linkedin.com/login`, sign in, close the window, then restart the session.
 - Validating LinkedIn with Playwright needs Mario's signed-in browser. Scroll to the end of the lazy-loaded Experience and Skills lists before drawing conclusions. Delete `.playwright-mcp/` and any scraped files from the workspace afterwards.
 - The Spanish recruiter checklist lives in a Claude Doc, "Perfil de LinkedIn de Mario – mejoras" (claude.ai/artifact/LTmbyvBLZyKH3yPBfR4RGs). If the Docs connector refuses to read it, read it through a Playwright snapshot instead.

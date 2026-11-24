@@ -14,6 +14,7 @@
 
 | What | Source | Notes |
 |---|---|---|
+| Jobs to apply to and their status | The "Vacantes para Mario" Sheet (claude.ai/artifact/8onQyXHwM6TVVm9x8bVuxz) | **The source of truth for the job list.** Mario updates it twice a day (morning and afternoon). Re-export it to `vacantes.xlsx` and rebuild `jobs/queue.csv` before any queue or triage work. When the Sheet and the repo disagree on a job's status, the Sheet wins. Read-only for us. |
 | Mario's experience | `Mario_Granada_Senior_Software_Engineer_CV.md` | Mirrors the final docx. The only source of facts for letters and answers. |
 | LinkedIn profile | `cv_development/LinkedIn_Profile_Nov2026.md` | Mirrors the live profile. Kept in sync with the CV. |
 | Letter structure | `cover_letter_template.md` | Approved. Only the "What draws me" paragraph is written per job. |

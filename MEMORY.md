@@ -40,6 +40,17 @@
 
 - Absolute minimum: €4,400 net/month. Gross and company-cost floors per setup are in `minimum_salary.md`. Block Labs' €6,250/month (€75,000/year) asked is the floor with Beckham.
 
+# Job queue and triage (added 2026-11-24)
+
+- Own tool instead of ai-job-search, which would replace the fixed Google Docs CV and the Playwright reading of LinkedIn. Borrowed ideas: the fit rubric with vetoes (`/rank`) and follow-ups after 10+ days (`/outcome followup`).
+- `vacantes.xlsx` lives at the repo root and is re-exported whenever the Sheet changes (Mario's rule). The Sheet is shared from another organization, so the Docs connector can't read it. Export it through the Playwright browser instead.
+- Playwright MCP now runs `--isolated` with `~/.playwright-auth/linkedin.json`. That file now also holds the claude.ai sign-in (saved 2026-11-24, backup at `linkedin.json.bak`).
+- First export: 479 rows → 456 unique jobs, 415 to do. To do by gate: ok 49, check 37, spain_permit 43, eu_permit 127, visa_sponsored 6, visa 125, blocked 28.
+- Submitting stays manual (LinkedIn's terms). Pace postings at about 50 a day.
+- The Sheet is the source of truth for jobs and status (rule in `constitution.md`), updated twice a day, morning and afternoon.
+- Headless: claude.ai shows a bot check ("Just a moment...") to headless browsers. A standalone script in a visible browser loaded the Sheet, but its menu said "You can't export this artifact", while the MCP browser got the Excel/CSV dialog. So the Sheet export runs through the visible `playwright-sheet` MCP server and everything else is headless.
+- First triage batch (49 postings): 13 apply, 21 maybe, 11 skip, 4 closed.
+
 # Applications log
 
 | Date | Company | Role | Location | Folder | Status |
@@ -56,3 +67,4 @@
 | 2026-11-23 | Yapily | Senior Front End Developer | Málaga (hybrid) | `jobs/Yapily-Senior_Front_End_Developer/` | Letter + headline |
 | 2026-11-23 | Mecalux | FrontEnd Developer | Cornellà de Llobregat, Barcelona (hybrid) | `jobs/Mecalux-FrontEnd_Developer/` | Letter |
 | 2026-11-23 | IKEA | Senior Software Engineer - IKEA for Business, Group Digital | San Sebastián de los Reyes, Madrid (on-site) | `jobs/IKEA-Senior_Software_Engineer_IKEA_for_Business_Group_Digital/` | Letter |
+| 2026-11-24 | 011h | Product Engineer | Barcelona (hybrid) | `jobs/011h-Product_Engineer/` | Applied: letter (marked Aplicado in the Sheet) |
