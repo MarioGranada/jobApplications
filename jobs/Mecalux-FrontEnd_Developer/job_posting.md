@@ -5,6 +5,7 @@
 - Location: Cornellà de Llobregat (Barcelona), Spain · Headquarters · Hybrid · Full-time · applications managed off LinkedIn
 - Job poster: Arnau Cepero Torres, Corporate Talent Acquisition
 - Posting language: Spanish
+- Reposted 2026-11-23: https://www.linkedin.com/jobs/view/4493771615/ (identical text plus one new requirement: "Más de 4 años de experiencia en posiciones similares")
 
 ## About Mecalux
 
@@ -32,6 +33,7 @@ Global leader in storage systems, 60+ years. Designs, manufactures and sells log
 - Automated testing with Jest or equivalent
 - Git and code reviews
 - Readable, maintainable code; teamwork; communicating decisions and blockers
+- 4+ years in similar positions (added in the repost)
 
 ## Offer
 
