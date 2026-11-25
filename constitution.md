@@ -14,9 +14,10 @@
 
 | What | Source | Notes |
 |---|---|---|
-| Jobs to apply to and their status | The "Vacantes para Mario" Sheet (claude.ai/artifact/8onQyXHwM6TVVm9x8bVuxz) | **The source of truth for the job list.** Mario updates it twice a day (morning and afternoon). Re-export it to `vacantes.xlsx` and rebuild `jobs/queue.csv` before any queue or triage work. When the Sheet and the repo disagree on a job's status, the Sheet wins. Read-only for us. |
+| Jobs to apply to and their status | The "Vacantes para Mario" Sheet (claude.ai/artifact/8onQyXHwM6TVVm9x8bVuxz) | **The source of truth for the job list.** Mario updates it twice a day (morning and afternoon). Re-export it to `vacantes.xlsx` and rebuild `jobs/queue.csv` before any queue or triage work. When the Sheet and the repo disagree on a job's status, the Sheet wins. The only edit we make is a job's Estado, when Mario says so (`sheet_status` skill, matched by link). |
 | Mario's experience | `Mario_Granada_Senior_Software_Engineer_CV.md` | Mirrors the final docx. The only source of facts for letters and answers. |
 | LinkedIn profile | `cv_development/LinkedIn_Profile_Nov2026.md` | Mirrors the live profile. Kept in sync with the CV. |
+| Application form answers | `application_answers_bank.md` | One bank for every job. Reuse before writing new answers, and record each new one there. Answers in Mario's own wording stay verbatim. |
 | Letter structure | `cover_letter_template.md` | Approved. Only the "What draws me" paragraph is written per job. |
 | A job's requirements | `jobs/<Company>-<Role>/job_posting.md` | The posting as read, in its own words. |
 | Rules and decisions | `AGENTS.md`, `MEMORY.md` | Rules and settled decisions; dated history and lessons. |

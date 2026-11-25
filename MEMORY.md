@@ -24,6 +24,8 @@
 
 # Application answers (2026-11-22 to 2026-11-23)
 
+- 2026-11-24: Mario decided on one global answers bank, `application_answers_bank.md` at the root, filled only from answers already in the repo (Glia, Block Labs) plus the Ketryx stack answer (draft). Skill: `.claude/skills/application_answers/`.
+
 - Glia: the AI-workflow answer is based on the portfolio repo's agent setup (constitution, AGENTS.md, MEMORY.md, SDD specs, coordinator/planner/implementer/reviewer agents, worktrees).
 - Block Labs: the four answers in `application_answers.md` are Mario's own final wording. Keep them verbatim. Q3 uses the Coursy `NEXT_LOCALE` cookie-scope fix (commit "COUR-10495 language cookie fix"); Mario asked not to cite the portfolio there.
 - Block Labs (2026-11-23): Mario asked €6,250–7,050/month gross. Ask for an employee contract with a non-Spanish entity on Spanish Social Security, not B2B (B2B at that figure nets less than Coursy). A Spanish entity or Spanish EOR is ruled out because it would require changing the visa (PAC). In the recruiter call, open as Tallinn-based and raise Spain only at the end. Details: `jobs/Block_Labs-Staff_Software_Engineer_Frontend/relocation_and_contract.md`.
@@ -50,6 +52,9 @@
 - The Sheet is the source of truth for jobs and status (rule in `constitution.md`), updated twice a day, morning and afternoon.
 - Headless: claude.ai shows a bot check ("Just a moment...") to headless browsers. A standalone script in a visible browser loaded the Sheet, but its menu said "You can't export this artifact", while the MCP browser got the Excel/CSV dialog. So the Sheet export runs through the visible `playwright-sheet` MCP server and everything else is headless.
 - First triage batch (49 postings): 13 apply, 21 maybe, 11 skip, 4 closed.
+- Afternoon export (2026-11-24): 519 rows → 495 unique jobs, 39 new (none removed), 36 Aplicado in the Sheet. The five jobs marked by `sheet_status` today all read Aplicado in the export.
+- 2026-11-24: Mario asked us to set the Estado dropdown when he says he applied (or reports another change), so that column is now the one exception to the Sheet being read-only. The Docs connector refuses the Sheet ("access", shared from another org), so `sheet_status` edits it through the page in Playwright: keyboard navigation over the virtualized DOM grid (Control+Home, arrows, Enter opens the dropdown). Jobs are matched by link, because rows move between updates (Ketryx went from Remoto global row 43 in the morning export to row 2 that afternoon). Estado options: Por aplicar, Aplicado, Entrevista, Oferta, Descartado, Por referir, Referido.
+- Morning export (2026-11-25): 557 rows → 532 unique jobs, 32 new (none removed), 40 Aplicado. New Mercor tab (talent pools that train AI, USD/h, referral links, no Empresa column): `build_queue.py` now uses the tab name as the company and reads "Link de referido", "Pago (USD/h)", "Ubicación / dedicación" and "Ojo / requisitos". Its 5 rows come in as `referral` (Estado Por referir). HappyRobot and Nortal (2026-11-25) are still not in the Sheet. Triage: 10 postings fetched and 9 scored. New apply: Langfuse (ClickHouse), Kraken Consumer Frontend (Estonia posting li-4437058590; the letter in `jobs/Kraken-…` was written for li-4437052825) and Carla. Maybe: Hack The Box Elixir. edenity's posting loaded without a description, so it's still pending.
 
 # Applications log
 
@@ -68,3 +73,39 @@
 | 2026-11-23 | Mecalux | FrontEnd Developer | Cornellà de Llobregat, Barcelona (hybrid) | `jobs/Mecalux-FrontEnd_Developer/` | Letter |
 | 2026-11-23 | IKEA | Senior Software Engineer - IKEA for Business, Group Digital | San Sebastián de los Reyes, Madrid (on-site) | `jobs/IKEA-Senior_Software_Engineer_IKEA_for_Business_Group_Digital/` | Letter |
 | 2026-11-24 | 011h | Product Engineer | Barcelona (hybrid) | `jobs/011h-Product_Engineer/` | Applied: letter (marked Aplicado in the Sheet) |
+| 2026-11-24 | Ashby | Design Engineer - EU | Estonia / España / UE | `jobs/Ashby-Design_Engineer_EU/` | Applied: letter (marked Aplicado in the Sheet) |
+| 2026-11-24 | Ashby | Senior Software Engineer, Product Engineering - EU | 🇪🇺 Remoto en Europa (publicado para España) | `jobs/Ashby-Senior_Software_Engineer_Product_Engineering_EU/` | Applied: letter + form answers (marked Aplicado in the Sheet) |
+| 2026-11-24 | Ashby | Staff Design Engineer - EU | 🇪🇺 Remoto en Europa | `jobs/Ashby-Staff_Design_Engineer_EU/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Ashby | Staff Software Engineer, Product Engineering - EU | 🇪🇺 Remoto en Europa (publicado para Italia) | `jobs/Ashby-Staff_Software_Engineer_Product_Engineering_EU/` | Letter (maybe, fit 3) |
+| 2026-11-24 | BairesDev | Backend Engineer (Elixir) | 🌎 Cualquier lugar | `jobs/BairesDev-Backend_Engineer_Elixir/` | Letter (maybe, fit 3) |
+| 2026-11-24 | BairesDev | Design Systems Engineer | 🌎 Cualquier lugar ("100% remote, from anywhere") | `jobs/BairesDev-Design_Systems_Engineer/` | Letter (apply, fit 4) |
+| 2026-11-24 | BairesDev | Senior Frontend Developer | 🌎 Cualquier lugar | `jobs/BairesDev-Senior_Frontend_Developer/` | Letter (maybe, fit 4) |
+| 2026-11-24 | BairesDev | Senior React Engineer | 🌎 Cualquier lugar | `jobs/BairesDev-Senior_React_Engineer/` | Letter (maybe, fit 4) |
+| 2026-11-24 | BairesDev | Senior React & TypeScript Engineer | 🌎 Cualquier lugar | `jobs/BairesDev-Senior_React_and_TypeScript_Engineer/` | Letter (maybe, fit 4) |
+| 2026-11-24 | BairesDev | Senior React + TypeScript Developer | 🌎 Cualquier lugar | `jobs/BairesDev-Senior_React_plus_TypeScript_Developer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | BairesDev | UI Engineer (Analytics) | 🌎 Cualquier lugar | `jobs/BairesDev-UI_Engineer_Analytics/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Betsson Group | Senior Frontend Engineer - Brand Experience | Grecia · Atenas | `jobs/Betsson-Senior_Frontend_Engineer_Brand_Experience/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Canonical | Senior Web Engineer | 🌍 Remoto EMEA | `jobs/Canonical-Senior_Web_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Checkly | Senior Product Engineer (Incident Response, remote) | Zonas horarias UTC-3 a UTC+3 | `jobs/Checkly-Senior_Product_Engineer_Incident_Response_remote/` | Applied: letter + 3 form answers (marked Aplicado in the Sheet) |
+| 2026-11-24 | ClickHouse | Senior Full Stack Engineer - ClickStack | 🌎 Remote-friendly, 25+ países (publicado en Ámsterdam) | `jobs/ClickHouse-Senior_Full_Stack_Engineer_ClickStack/` | Applied: letter + form answer (marked Aplicado in the Sheet) |
+| 2026-11-24 | ClickHouse | Senior Software Engineer (Typescript / Front-end) - AI/ML | 🌎 Remote-friendly, 25+ países | `jobs/ClickHouse-Senior_Software_Engineer_Typescript_Front_end_AI_ML/` | Letter (maybe, fit 3) |
+| 2026-11-24 | ClickUp | Senior Frontend Engineer | Hungría (remoto UE) | `jobs/ClickUp-Senior_Frontend_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Customer.io | Senior Software Engineer, Product/AI | Remoto · EMEA | `jobs/Customer.io-Senior_Software_Engineer_Product_AI/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Deel | Senior Design Engineer | Reino Unido | `jobs/Deel-Senior_Design_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Deel | Senior Full Stack Engineer - EMEA | Estonia / EMEA | `jobs/Deel-Senior_Full_Stack_Engineer_EMEA/` | Applied: letter (marked Aplicado in the Sheet) |
+| 2026-11-24 | Elastic | Senior Full Stack Software Developer - Observability | 🇪🇸 Remoto España | `jobs/Elastic-Senior_Full_Stack_Software_Developer_Observability/` | Letter (apply, fit 4) |
+| 2026-11-24 | Kake | Senior Full Stack Engineer (Node/React) | 🌎 Publicado en 10+ países (LATAM, Europa, Asia, África) | `jobs/Kake-Senior_Full_Stack_Engineer_Node_React/` | Letter (maybe, fit 4) |
+| 2026-11-24 | Ketryx | Full Stack Software Engineer | Remoto en la UE (o híbrido en Viena) | `jobs/Ketryx-Full_Stack_Software_Engineer/` | Applied: letter (marked Aplicado in the Sheet) |
+| 2026-11-24 | Kraken | Senior Software Engineer - Frontend - Consumer | Eslovenia (remoto UE) | `jobs/Kraken-Senior_Software_Engineer_Frontend_Consumer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Motion (Creative Analytics) | Senior / Staff Software Engineer | 🌍 Equipo 100% remoto (publicado en Reino Unido) | `jobs/Motion-Senior_Staff_Software_Engineer/` | Letter (apply, fit 4) |
+| 2026-11-24 | Nebius | Senior Fullstack Engineer | Remoto · Europa e Israel | `jobs/Nebius-Senior_Fullstack_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Productboard | Staff Full-stack Product Engineer, Growth | Chequia · Praga | `jobs/Productboard-Staff_Full_stack_Product_Engineer_Growth/` | Applied: letter (marked Aplicado in the Sheet) |
+| 2026-11-24 | Proxify | Senior Frontend Developer (React.js + Next.js) | 🌎 Remoto (red global de contractors; publicado para Brasil) | `jobs/Proxify-Senior_Frontend_Developer_React.js_plus_Next.js/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Social Discovery Group | Senior Frontend Developer | 🌎 Cualquier país (equipo de nómadas digitales) | `jobs/Social_Discovery_Group-Senior_Frontend_Developer/` | Letter (maybe, fit 4) |
+| 2026-11-24 | Spotify | Senior Web Engineer – Subscriptions | Remoto · EMEA | `jobs/Spotify-Senior_Web_Engineer_Subscriptions/` | Applied: letter + form answers (marked Aplicado in the Sheet) |
+| 2026-11-24 | Toggl | Senior Full Stack Engineer | 🌎 Cualquier zona horaria (≥4 h de solape con Europa central) | `jobs/Toggl-Senior_Full_Stack_Engineer/` | Applied: letter + 4 form answers (marked Aplicado in the Sheet) |
+| 2026-11-24 | Toptal | Senior Fullstack Engineer | Estonia / Grecia / remoto | `jobs/Toptal-Senior_Fullstack_Engineer/` | Discarded: no longer accepting applications (marked Descartado in the Sheet) |
+| 2026-11-24 | Triple | Product Engineer | 🌍 100% remoto (publicado en Reino Unido) | `jobs/Triple-Product_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-24 | Upvest | Senior Fullstack Engineer | Hubs en Berlín, Londres o Tallin (híbrido) o remoto en Europa, según el rol | `jobs/Upvest-Senior_Fullstack_Engineer/` | Letter (maybe, fit 3) |
+| 2026-11-25 | HappyRobot | Forward Deployed Engineer | Madrid (híbrido) | none (not in the Sheet) | Applied: 1 form answer (not in the Sheet, no Estado to mark) · https://www.linkedin.com/jobs/view/4318435019/ |
+| 2026-11-25 | Nortal | AI-Driven Software Engineer | Tallinn (híbrido) | `jobs/Nortal-AI-Driven_Software_Engineer/` | Applied: letter (not in the Sheet, no Estado to mark; Java and Estonian required, senior cap €6,000 gross/month) · https://www.linkedin.com/jobs/view/4423101698/ |

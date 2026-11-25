@@ -19,14 +19,15 @@ ROOT = Path(__file__).resolve().parent.parent
 XLSX = ROOT / "vacantes.xlsx"
 OUT = ROOT / "jobs" / "queue.csv"
 
-LOCATION_COLS = ["País / ciudad", "Ciudad / país", "Desde dónde se puede trabajar", "Ciudad / modalidad"]
+LOCATION_COLS = ["País / ciudad", "Ciudad / país", "Desde dónde se puede trabajar", "Ciudad / modalidad",
+                 "Ubicación / dedicación"]
 MODALITY_COLS = ["Modalidad", "Contrato"]
 PERMIT_COLS = ["Permiso de trabajo", "Permiso / nota", "¿Se puede trabajar desde España?"]
-NOTE_COLS = ["Restricción / nota", "Nota para Mario", "Verificación", "Relación con la F1"]
+NOTE_COLS = ["Restricción / nota", "Nota para Mario", "Verificación", "Relación con la F1", "Ojo / requisitos"]
 
 GATE_ORDER = ["ok", "check", "spain_permit", "eu_permit", "visa_sponsored", "visa", "blocked"]
 STATUS_MAP = {"Por aplicar": "todo", "Aplicado": "applied", "Descartado": "discarded",
-              "Por referir": "referral", "Entrevista": "interview"}
+              "Por referir": "referral", "Referido": "referred", "Entrevista": "interview", "Oferta": "offer"}
 TRIAGE_COLS = ["fit", "verdict", "triage_notes"]
 
 FIELDS = ["key", "status", "gate", "priority", "company", "role", "country", "location", "modality",
@@ -65,12 +66,15 @@ def gate(permit, country):
 
 
 def local_folders():
-    """Map LinkedIn job id and normalized company -> jobs/ folder."""
+    """Map queue key (li-<LinkedIn id> or saved Key) and normalized company -> jobs/ folder."""
     by_id, by_company = {}, {}
     for f in sorted((ROOT / "jobs").glob("*/job_posting.md")):
         folder = f"jobs/{f.parent.name}/"
-        for jid in re.findall(r"linkedin\.com/jobs/view/(\d+)", f.read_text()):
-            by_id[jid] = folder
+        text = f.read_text()
+        for jid in re.findall(r"linkedin\.com/jobs/view/(\d+)", text):
+            by_id[f"li-{jid}"] = folder
+        for key in re.findall(r"^- Key: (\S+)", text, re.M):  # postings saved by fetch_postings.mjs
+            by_id[key] = folder
         by_company[norm(f.parent.name.split("-")[0].replace("_", " "))] = folder
     return by_id, by_company
 
@@ -99,9 +103,12 @@ def main():
         header = [str(h).strip() if h else "" for h in rows[0][1]]
         for row_no, r in rows[1:]:
             d = dict(zip(header, r))
+            # The Mercor tab has no Empresa column: the tab name is the company.
+            if "Empresa" not in header and "Puesto" in header:
+                d["Empresa"] = ws.title
             if not d.get("Empresa"):
                 continue
-            link = str(d.get("Link") or "").strip()
+            link = first(d, ["Link", "Link de referido"])
             permit = first(d, PERMIT_COLS)
             country = re.sub(r"^\d+ · ", "", str(d.get("País") or "")).strip()
             pub = d.get("Publicado")
@@ -119,10 +126,10 @@ def main():
                 "type": d.get("Tipo") or "",
                 "visa": d.get("¿Patrocina visa?") or "",
                 "permit": permit,
-                "salary": first(d, ["Salario"]),
+                "salary": first(d, ["Salario", "Pago (USD/h)"]),
                 "published": pub.date().isoformat() if hasattr(pub, "date") else str(pub or ""),
                 "link": link,
-                "folder": by_id.get(jid, ""),
+                "folder": "",
                 "contact": first(d, ["Contacto (reclutador)"]),
                 "why": first(d, ["Por qué encaja"]),
                 "note": first(d, NOTE_COLS),
@@ -131,6 +138,7 @@ def main():
                 "sheet_refs": f"{ws.title} {row_no}",
                 "duplicate_links": "",
             }
+            job["folder"] = by_id.get(job["key"], "")
             if not job["folder"] and job["status"] == "todo" and norm(job["company"]) in by_company:
                 job["note"] = (job["note"] + " | " if job["note"] else "") + \
                     f"Same company as {by_company[norm(job['company'])]}"

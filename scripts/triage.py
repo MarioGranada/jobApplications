@@ -2,10 +2,12 @@
 
 Usage:
   python3 scripts/triage.py set <key> <fit 1-5> <apply|maybe|skip|closed> "<notes>"
+  python3 scripts/triage.py status "<Estado>" <url> [<url> ...]   # mirror a Sheet Estado change
   python3 scripts/triage.py report
 """
 
 import csv
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -17,7 +19,21 @@ POSTINGS = ROOT / "jobs" / "triage" / "postings"
 VERDICTS = ["apply", "maybe", "skip", "closed"]
 # Status comes from the Sheet's Estado column (the source of truth), shown in the Sheet's own words.
 STATUS_LABELS = {"todo": "Por aplicar", "applied": "**Aplicado**", "discarded": "Descartado",
-                 "referral": "Por referir", "interview": "**Entrevista**", "letter_ready": "Por aplicar (carta lista)"}
+                 "referral": "Por referir", "referred": "Referido", "interview": "**Entrevista**",
+                 "offer": "**Oferta**", "letter_ready": "Por aplicar (carta lista)"}
+ESTADOS = {"Por aplicar": "todo", "Aplicado": "applied", "Descartado": "discarded", "Por referir": "referral",
+           "Referido": "referred", "Entrevista": "interview", "Oferta": "offer"}
+
+
+def job_id(url):
+    """LinkedIn job id, otherwise the URL without protocol, www, query, hash and trailing slash."""
+    s = url.strip()
+    m = re.search(r"linkedin\.com/jobs/view/(?:[^/?#]*-)?(\d{6,})", s, re.I) or re.search(r"currentJobId=(\d{6,})", s, re.I)
+    if m:
+        return "li-" + m.group(1)
+    s = re.sub(r"^https?://", "", s.lower())
+    s = re.sub(r"^www\.", "", s)
+    return re.sub(r"[?#].*$", "", s).rstrip("/")
 
 
 def load():
@@ -71,6 +87,20 @@ def main():
         assert verdict in VERDICTS, f"verdict must be one of {VERDICTS}"
         row = next(r for r in rows if r["key"] == key)
         row.update(fit=fit, verdict=verdict, triage_notes=notes)
+        save(fields, rows)
+    elif sys.argv[1:2] == ["status"]:
+        # Mirrors an Estado change already made in the Sheet, until the next export.
+        estado, urls = sys.argv[2], sys.argv[3:]
+        assert estado in ESTADOS, f"Estado must be one of {list(ESTADOS)}"
+        wanted = {job_id(u): u for u in urls}
+        for r in rows:
+            ids = {job_id(r["link"])} | {job_id(u) for u in r["duplicate_links"].split()}
+            if r["key"] in wanted or ids & wanted.keys():
+                r["status"] = ESTADOS[estado]
+                print(f"{r['key']}: {r['company']} · {r['role']} -> {estado}")
+                wanted = {k: v for k, v in wanted.items() if k != r["key"] and k not in ids}
+        for u in wanted.values():
+            print(f"not in queue: {u}")
         save(fields, rows)
     report(rows)
 

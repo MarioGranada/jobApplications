@@ -9,6 +9,7 @@ Mario Granada's job-search workspace (Tallinn, Estonia): CV, LinkedIn profile te
 | `Mario_Granada_Senior_Software_Engineer_CV.md` | Source of truth for the CV text. Mirrors the final docx word for word. |
 | `Mario Granada - Senior Software Engineer CV.docx` / `.pdf` | The final CV, edited and exported from Google Docs. |
 | `cover_letter_template.md` | Approved cover letter template. |
+| `application_answers_bank.md` | Every application form answer, reused across jobs. Paste a form question in Claude Code to get an answer, which is then recorded here. |
 | `jobs/<Company>-<Role>/` | One folder per application: `cover_letter.md`, `job_posting.md`, and sometimes `application_answers.md` or `linkedin_message.md`. |
 | `cv_development/` | LinkedIn profile text (source of truth) and older CV iterations. |
 | `vacantes.xlsx` | Latest export of the vacancies Sheet. Always kept here, and re-exported whenever the Sheet changes. |
@@ -19,6 +20,7 @@ Mario Granada's job-search workspace (Tallinn, Estonia): CV, LinkedIn profile te
 | `spain/` | Relocation plan to Spain and the official digital nomad visa (DNV) requirements. |
 | `linkedin-thumbnails/` | HTML cards screenshotted into LinkedIn link-preview images. |
 | `.claude/skills/cover_letter_writer/` | Claude Code skill that writes a tailored cover letter from a job URL. |
+| `.claude/skills/sheet_status/` | Claude Code skill that sets a job's Estado (Aplicado, Entrevista…) in the Sheet, found by its link. |
 
 ## Write a cover letter
 
@@ -43,7 +45,7 @@ node scripts/fetch_postings.mjs --gate ok,check --priority 1,2 --limit 50
 python3 scripts/triage.py report              # -> jobs/triage.md
 ```
 
-Pick jobs from `jobs/triage.md`, ask for their cover letters, and submit them yourself.
+Pick jobs from `jobs/triage.md`, ask for their cover letters, and submit them yourself. Then say `applied to job <url>` (or list several, or name a round), and Claude Code sets their Estado to "Aplicado" in the Sheet, finding each one by its link.
 
 ## Export the CV
 
